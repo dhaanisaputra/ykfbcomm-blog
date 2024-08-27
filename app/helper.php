@@ -42,7 +42,7 @@ if (!function_exists('words')) {
  * Check if user is online/not connected
  */
 if (!function_exists('isOnline')) {
-    function isOnline($site = 'https://www.youtube.com/')
+    function isOnline($site = 'https://www.google.com/')
     {
         if (@fopen($site, "r")) {
             return true;

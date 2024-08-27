@@ -54,46 +54,46 @@ class Authors extends Component
             'authorType.required' => 'Choose author type',
             'direct_publisher.required' => 'Specify author publication access'
         ]);
+        dd(isOnline());
+        // if ($this->isOnline()) {
+        //     $default_password = Random::generate(8);
+        //     $author = new User();
+        //     $author->name = $this->name;
+        //     $author->email = $this->email;
+        //     $author->username = $this->username;
+        //     $author->password = Hash::make($default_password);
+        //     $author->type = $this->authorType;
+        //     $author->direct_publish = $this->direct_publisher;
+        //     $saved = $author->save();
 
-        if ($this->isOnline()) {
-            $default_password = Random::generate(8);
-            $author = new User();
-            $author->name = $this->name;
-            $author->email = $this->email;
-            $author->username = $this->username;
-            $author->password = Hash::make($default_password);
-            $author->type = $this->authorType;
-            $author->direct_publish = $this->direct_publisher;
-            $saved = $author->save();
+        //     $data = array(
+        //         'name' => $this->name,
+        //         'username' => $this->username,
+        //         'email' => $this->email,
+        //         'password' => $default_password,
+        //         'url' => route('author.profile'),
+        //     );
 
-            $data = array(
-                'name' => $this->name,
-                'username' => $this->username,
-                'email' => $this->email,
-                'password' => $default_password,
-                'url' => route('author.profile'),
-            );
+        //     $author_email = $this->email;
+        //     $author_name = $this->name;
 
-            $author_email = $this->email;
-            $author_name = $this->name;
+        //     if ($saved) {
 
-            if ($saved) {
+        //         Mail::send('new-author-email-template', $data, function ($message) use ($author_email, $author_name) {
+        //             $message->from('noreply@example.com', 'YkfbBlog');
+        //             $message->to($author_email, $author_name)
+        //                 ->subject('Account Author');
+        //         });
 
-                Mail::send('new-author-email-template', $data, function ($message) use ($author_email, $author_name) {
-                    $message->from('noreply@example.com', 'YkfbBlog');
-                    $message->to($author_email, $author_name)
-                        ->subject('Account Author');
-                });
-
-                $this->showToastr('New author has been added', 'success');
-                $this->name = $this->email = $this->username = $this->authorType = $this->direct_publisher = null;
-                $this->dispatch('hide_add_author_modal');
-            } else {
-                $this->showToastr('Something went wrong', 'error');
-            }
-        } else {
-            $this->showToastr('You are offline, check your connection', 'error');
-        }
+        //         $this->showToastr('New author has been added', 'success');
+        //         $this->name = $this->email = $this->username = $this->authorType = $this->direct_publisher = null;
+        //         $this->dispatch('hide_add_author_modal');
+        //     } else {
+        //         $this->showToastr('Something went wrong', 'error');
+        //     }
+        // } else {
+        //     $this->showToastr('You are offline, check your connection', 'error');
+        // }
     }
 
     public function editAuthor($author)
