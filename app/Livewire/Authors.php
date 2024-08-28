@@ -71,7 +71,7 @@ class Authors extends Component
                 'username' => $this->username,
                 'email' => $this->email,
                 'password' => $default_password,
-                'url' => route('author.profile'),
+                'url' => route('author.login'),
             );
 
             $author_email = $this->email;
