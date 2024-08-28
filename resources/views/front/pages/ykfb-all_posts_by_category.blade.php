@@ -7,7 +7,7 @@
         <div class="row">
 
             <div class="col-md-9 aos-init aos-animate" data-aos="fade-up">
-                <h3 class="category-title">{{ $pageTitle }}</h3>
+                <h3 class="mb-4">{{ $pageTitle }}</h3>
                 @forelse ($posts as $item)
                     @php
                         $getSubCateg = App\Models\SubCategory::where('id', $item->category_id)

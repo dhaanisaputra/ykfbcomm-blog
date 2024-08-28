@@ -176,7 +176,7 @@ class BlogController extends Controller
                 return abort(404);
             } else {
                 $data = [
-                    'pageTitle' => 'Category - ' . $getCategory->category_name,
+                    'pageTitle' => $getCategory->category_name,
                     'category' => $id,
                     'posts' => $getPostCateg
                 ];

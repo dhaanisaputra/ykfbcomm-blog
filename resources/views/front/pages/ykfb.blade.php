@@ -164,7 +164,6 @@
                                 <ul class="trending-post">
                                     <li>
                                         <a href="{{ route('read_post', $item->post_slug) }}">
-                                            <span class="number">1</span>
                                             <h3>{{ $item->post_title }}</h3>
                                             <span
                                                 class="text-lowercase text-muted">{{ readDuration($item->post_title, $item->post_content) }}
