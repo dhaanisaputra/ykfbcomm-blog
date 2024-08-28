@@ -38,10 +38,12 @@
                     </li>
                 @endforeach
 
-                <li class="nav-item"> <a class="nav-link" href="{{ route('community') }}">Komunitas</a>
+                <li>
+                    <a href="{{ route('community') }}">Community</a>
                 </li>
 
-                <li class="nav-item"> <a class="nav-link" href="{{ route('foty-idn') }}">FoTY</a>
+                <li>
+                    <a href="{{ route('foty-idn') }}">FoTY</a>
                 </li>
 
                 <li><a href="{{ route('about-me') }}">About</a></li>

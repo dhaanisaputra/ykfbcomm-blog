@@ -7,7 +7,7 @@
         <div class="row">
 
             <div class="col-md-9 aos-init aos-animate" data-aos="fade-up">
-                <h3 class="category-title">Category: {{ $category->subcategory_name }}</h3>
+                <h3 class="mb-4">{{ $category->subcategory_name }}</h3>
 
                 @forelse ($posts as $item)
                     @php

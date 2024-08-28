@@ -24,20 +24,19 @@
                         </a>
                         <div>
                             <div class="post-meta">
-                                <span>{{ date_formatter($item->created_at) }}</span>
+                                {{-- <span>{{ date_formatter($item->created_at) }}</span> --}}
                             </div>
                             <h3><a href="{{ route('read_community', $item->post_slug) }}">{{ $item->communities_title }}</a>
                             </h3>
                             <p>{!! Str::ucfirst(words($item->post_content, 40)) !!}</p>
-                            <div class="d-flex align-items-center author">
+                            {{-- <div class="d-flex align-items-center author">
                                 <div class="name">
                                     @php
                                         $getAuthor = App\Models\User::where('id', $item->author_id)->first();
                                     @endphp
                                     <span class="author mb-3 d-block">Author: {{ $getAuthor->name }}</span>
-                                    {{-- <h3 class="m-0 p-0">{{ $getAuthor->name }}</h3> --}}
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 @empty

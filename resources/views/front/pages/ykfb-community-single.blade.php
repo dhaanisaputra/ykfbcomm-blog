@@ -29,7 +29,7 @@
                     <!-- ======= Single Post Content ======= -->
                     <div class="single-post">
                         <div class="post-meta"><span class="date"></span>
-                            <span>{{ date_formatter($posts->created_at) }}</span>
+                            {{-- <span>{{ date_formatter($posts->created_at) }}</span> --}}
                         </div>
                         <h1 class="mb-5">{{ $posts->communities_title }}</h1>
                         <img src="{{ asset('back/dist/img/community-upload/thumbnails/thumb_' . $posts->featured_image) }}"

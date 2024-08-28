@@ -94,25 +94,25 @@
                         @endphp
                         @foreach ($getSocmed as $item)
                             @if ($item->bsm_facebook == null)
-                                <a data-toggle="tooltip" data-placement="top" title="Not Ready!" class="facebook"
+                                {{-- <a data-toggle="tooltip" data-placement="top" title="Not Ready!" class="facebook"
                                     target="" rel="noopener noreferrer" aria-label="Facebook"><i
-                                        class="bi bi-facebook"></i></a>
+                                        class="bi bi-facebook"></i></a> --}}
                             @else
                                 <a href="{{ $item->bsm_facebook }}" class="facebook" target="_blank"
                                     rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
                             @endif
                             @if ($item->bsm_instagram == null)
-                                <a data-toggle="tooltip" data-placement="top" title="Not Ready!" class="instagram"
+                                {{-- <a data-toggle="tooltip" data-placement="top" title="Not Ready!" class="instagram"
                                     target="" rel="noopener noreferrer" aria-label="Instagram"><i
-                                        class="bi bi-instagram"></i></a>
+                                        class="bi bi-instagram"></i></a> --}}
                             @else
                                 <a href="{{ $item->bsm_instagram }}" class="instagram" target="_blank"
                                     rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
                             @endif
                             @if ($item->bsm_youtube == null)
-                                <a data-toggle="tooltip" data-placement="top" title="Not Ready!" class="youtube"
+                                {{-- <a data-toggle="tooltip" data-placement="top" title="Not Ready!" class="youtube"
                                     target="" rel="noopener noreferrer" aria-label="Youtube"><i
-                                        class="bi bi-youtube"></i></a>
+                                        class="bi bi-youtube"></i></a> --}}
                             @else
                                 <a href="{{ $item->bsm_youtube }}" class="youtube" target="_blank"
                                     rel="noopener noreferrer" aria-label="Youtube"><i class="bi bi-youtube"></i></a>

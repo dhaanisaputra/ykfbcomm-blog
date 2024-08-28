@@ -256,7 +256,8 @@ section {
     .navbar .active,
     .navbar .active:focus,
     .navbar li:hover > a {
-        color: var(--color-default);
+        /* color: var(--color-default); */
+        color: firebrick;
     }
 
     .navbar .getstarted,
@@ -309,6 +310,7 @@ section {
     .navbar .dropdown ul .active:hover,
     .navbar .dropdown ul li:hover > a {
         color: var(--color-primary);
+        background-color: #ddd;
     }
 
     .navbar .dropdown:hover > ul {
