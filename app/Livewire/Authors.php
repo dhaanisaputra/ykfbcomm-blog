@@ -8,6 +8,7 @@ use Nette\Utils\Random;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class Authors extends Component
@@ -77,14 +78,19 @@ class Authors extends Component
             $author_name = $this->name;
 
             if ($saved) {
-
-                Mail::send('new-author-email-template', $data, function ($message) use ($author_email, $author_name) {
-                    $message->from('noreply@example.com', 'YkfbBlog');
-                    $message->to($author_email, $author_name)
-                        ->subject('Account Author');
-                });
-
-                $this->showToastr('New author has been added', 'success');
+                try {
+                    Mail::send('new-author-email-template', $data, function ($message) use ($author_email, $author_name) {
+                        $message->from('noreply@example.com', 'YkfbBlog');
+                        $message->to($author_email, $author_name)
+                            ->subject('Account Author');
+                    });
+                    // sending email success
+                    $this->showToastr('New author has been added', 'success');
+                } catch (\Exception $e) {
+                    Log::error('Error sending email: ' . $e->getMessage());
+                    $this->showToastr('Failed to send email to new author', 'error');
+                }
+                // Reset form fields
                 $this->name = $this->email = $this->username = $this->authorType = $this->direct_publisher = null;
                 $this->dispatch('hide_add_author_modal');
             } else {
