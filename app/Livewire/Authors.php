@@ -80,7 +80,7 @@ class Authors extends Component
             if ($saved) {
                 try {
                     Mail::send('new-author-email-template', $data, function ($message) use ($author_email, $author_name) {
-                        $message->from('noreply@example.com', 'YkfbBlog');
+                        $message->from('mailblog@ykfbcommunity.my.id', 'YkfbBlog');
                         $message->to($author_email, $author_name)
                             ->subject('Account Author');
                     });
