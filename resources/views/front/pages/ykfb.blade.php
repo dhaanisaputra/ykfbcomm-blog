@@ -168,7 +168,7 @@
                                             <h3>{{ $item->post_title }}</h3>
                                             <span
                                                 class="text-lowercase text-muted">{{ readDuration($item->post_title, $item->post_content) }}
-                                                @choice('min|mins', readDuration($item->post_title, $item->post_content)) read | {{ $item->reads / 2 }} views</span>
+                                                @choice('min|mins', readDuration($item->post_title, $item->post_content)) read | {{ $item->reads }} views</span>
                                         </a>
                                     </li>
                                 </ul>
