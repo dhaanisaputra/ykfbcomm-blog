@@ -729,7 +729,9 @@ section {
 }
 
 .more {
-    font-family: var(--font-secondary);
+    /* font-family: var(--font-secondary); */
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
     text-transform: uppercase;
     font-size: 12px;
     font-weight: 500;
@@ -746,6 +748,10 @@ section {
     right: 0;
     bottom: 0;
     background: var(--color-black);
+}
+
+.more:hover {
+    color: firebrick;
 }
 
 .post-content {
@@ -812,7 +818,9 @@ section {
     line-height: 40px;
     text-align: center;
     border-radius: 50%;
-    font-family: var(--font-secondary);
+    /* font-family: var(--font-secondary); */
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
     margin: 5px;
     transition: 0.3s all ease;
 }

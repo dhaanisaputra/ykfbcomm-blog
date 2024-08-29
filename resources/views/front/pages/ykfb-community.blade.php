@@ -9,7 +9,7 @@
                 @php
                     $listCommunity = App\Models\Community::where('status_community', 1)->count();
                 @endphp
-                <h3 class="category-title">All Community</h3>
+                <h3>All Community</h3>
                 <p style="text-align: left; margin-bottom: 30px">Di bawah ini adalah {{ $listCommunity }} nama komunitas
                     <em>fingerboard</em>
                     yang ada di
