@@ -159,7 +159,7 @@ class AuthorController extends Controller
             //     ->save(storage_path('app/public/' . $path . 'thumbnails/' . 'resized_' . $new_filename));
             // if ($upload) {
             $post = new Post();
-            $post->author_id = auth()->id();
+            $post->author_id = auth()->guard('web')->user()->id;
             $post->category_id = $request->post_category;
             $post->post_title = $request->post_title;
             // $post->post_slug = Str::slug($request->post_title);
@@ -272,6 +272,21 @@ class AuthorController extends Controller
             } else {
                 return redirect()->route('author.posts.all-post')->with('message', "Something went wrong");
             }
+        }
+    }
+
+    public function uploadPost(Request $request)
+    {
+        // for ckeditor upload image
+        if ($request->hasFile('upload')) {
+            $originName = $request->file('upload')->getClientOriginalName();
+            $fileName = pathinfo($originName, PATHINFO_FILENAME);
+            $extension = $request->file('upload')->getClientOriginalExtension();
+            $fileName = $fileName . '-' . time() . '.' . $extension;
+
+            $request->file('upload')->move(public_path('media'), $fileName);
+            $url = asset('media/' . $fileName);
+            return response()->json(['filename' => $fileName, 'uploaded' => 1, 'url' => $url]);
         }
     }
 }

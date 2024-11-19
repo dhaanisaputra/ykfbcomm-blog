@@ -47,6 +47,7 @@ Route::prefix('author')->name('author.')->group(function () {
             Route::view('/all', 'back.pages.all-post')->name('all-post');
             Route::get('/edit-post', [AuthorController::class, 'editPost'])->name('edit-post');
             Route::post('/update-post', [AuthorController::class, 'updatePost'])->name('update-post');
+            Route::post('/upload-image-post', [AuthorController::class, 'uploadPost'])->name('ckeditor-upload');
 
             Route::view('/add-community', 'back.pages.add-community')->name('add-community');
             Route::post('/create-community', [CommunityController::class, 'createCommunity'])->name('create-community');
@@ -63,6 +64,10 @@ Route::prefix('author')->name('author.')->group(function () {
     });
 });
 
+// Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+//     \UniSharp\LaravelFilemanager\Lfm::routes();
+// });
+
 Route::view('/ykfb', 'front.pages.home');
 Route::view('/', 'front.pages.ykfb');
 // Route::view('/ykfb-home', 'front.pages.ykfb');
@@ -78,3 +83,4 @@ Route::get('/community', [BlogController::class, 'listCommunity'])->name('commun
 Route::get('/community/{any}', [BlogController::class, 'readCommunity'])->name('read_community');
 // Route::view('/community', 'front.pages.ykfb-community')->name('community');
 Route::get('/foty-idn', [BlogController::class, 'listFoty'])->name('foty-idn');
+Route::view('/calendar-event', 'front.pages.ykfb-calendar-events')->name('calendar-events');

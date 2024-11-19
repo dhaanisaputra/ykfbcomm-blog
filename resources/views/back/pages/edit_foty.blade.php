@@ -97,14 +97,14 @@
 
 @push('scripts')
     {{-- --- ckeditor --- --}}
-    <script>
+    {{-- <script>
         // CKEDITOR.replace( 'desc_post' );
         ClassicEditor
             .create(document.querySelector('#desc_post'))
             .catch(error => {
                 console.error(error);
             });
-    </script>
+    </script> --}}
     {{-- -- preview image -- --}}
     <script>
         function previewImage(event) {

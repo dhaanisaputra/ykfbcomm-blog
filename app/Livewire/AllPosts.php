@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\File;
 class AllPosts extends Component
 {
     use WithPagination;
-    public $perPage = 4;
+    public $perPage = 10;
     public $search = null;
     public $author = null;
     public $category = null;

@@ -71,7 +71,7 @@
                     <img src="{{ asset('back/dist/img/posts-upload/thumbnails/resized_' . $post->featured_image) }}"
                         alt="" class="card img-top">
                     <div class="card-body p-2">
-                        <h3 class="m-0 mb-1">{{ $post->post_title }}</h3>
+                        <h3 class="m-0 mb-1">{!! Str::ucfirst(words($post->post_title, 2)) !!}</h3>
                     </div>
                     <div class="d-flex">
                         <a href="{{ route('author.posts.edit-post', ['post_id' => $post->id]) }}"

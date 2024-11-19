@@ -778,15 +778,17 @@ section {
 
 .post-content figure {
     position: relative;
-    left: 52%;
-    min-width: 990px;
-    transform: translateX(-50%);
+    /* left: 52%; */
+    /* min-width: 990px; */
+    /* transform: translateX(-50%); */
+    text-align: center;
+    display: block;
 }
 
 @media (max-width: 1255px) {
     .post-content figure {
         min-width: auto;
-        left: auto !important;
+        /* left: auto !important; */
         transform: none;
     }
 }
@@ -794,6 +796,7 @@ section {
 .post-content figure figcaption {
     font-family: var(--font-secondary);
     font-size: 14px;
+    font-style: italic;
     padding: 10px 0 0 0;
 }
 
@@ -931,6 +934,26 @@ section {
 .aside-tags li a:focus {
     color: rgba(var(--color-black-rgb), 1);
     border: 1px solid rgba(var(--color-black-rgb), 0.5);
+}
+
+blockquote {
+    background: #f9f9f9;
+    border-left: 10px solid #ccc;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    quotes: "\201C""\201D""\2018""\2019";
+    font-style: italic;
+}
+blockquote:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+}
+blockquote p {
+    display: inline;
 }
 
 /*--------------------------------------------------------------

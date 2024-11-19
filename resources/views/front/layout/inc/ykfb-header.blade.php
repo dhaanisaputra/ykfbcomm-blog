@@ -102,6 +102,7 @@
                     <a href="{{ route('foty-idn') }}">FoTY</a>
                 </li>
 
+                <li><a href="{{ route('calendar-events') }}">Calendar Events</a></li>
                 <li><a href="{{ route('about-me') }}">About</a></li>
             </ul>
         </nav>
