@@ -78,7 +78,7 @@ class AllPosts extends Component
     public function render()
     {
         return view('livewire.all-posts', [
-            'posts' => auth()->user()->type == 1 ?
+            'posts' => auth()->guard('web')->user()->type == 1 ?
                 Post::search(trim($this->search))
                 ->when($this->category, function ($query) {
                     $query->where('category_id', $this->category);
@@ -95,7 +95,7 @@ class AllPosts extends Component
                     $query->where('category_id', $this->category);
                 })
                 ->when(true, function ($query) {
-                    $query->where('author_id', auth()->id());
+                    $query->where('author_id', auth()->guard('web')->id());
                 })
                 // ->when('author_id', auth()->id())
                 ->when($this->orderBy, function ($query) {
