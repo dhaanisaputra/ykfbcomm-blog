@@ -67,7 +67,11 @@
     <div class="row row-cards">
         @forelse ($posts as $post)
             <div class="col-md-6 col-lg-3">
-                <div class="card">
+                <div class="card position-relative">
+                    <!-- Chip for status -->
+                    <div class="chip {{ $post->status_post == 1 ? 'chip-active' : 'chip-inactive' }}">
+                        {{ $post->status_post == 1 ? 'ACTIVE' : 'INACTIVE' }}
+                    </div>
                     <img src="{{ asset('back/dist/img/posts-upload/thumbnails/resized_' . $post->featured_image) }}"
                         alt="" class="card img-top">
                     <div class="card-body p-2">
@@ -89,4 +93,31 @@
     <div class="d-block mt-2">
         {{ $posts->links('livewire::bootstrap') }}
     </div>
+
+    <style>
+        /* Base chip styling */
+        .chip {
+            position: absolute;
+            z-index: 1;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        /* Active chip styling */
+        .chip-active {
+            background-color: #28a745;
+            /* Green for ACTIVE */
+        }
+
+        /* Inactive chip styling */
+        .chip-inactive {
+            background-color: #dc3545;
+            /* Red for INACTIVE */
+        }
+    </style>
 </div>

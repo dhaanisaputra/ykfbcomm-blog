@@ -23,6 +23,7 @@ class BlogController extends Controller
                 return abort(404);
             } else {
                 $posts = Post::where('category_id', $subcategory->id)
+                    ->where('status_post', 1)
                     ->orderBy('created_at', 'desc')
                     ->paginate(6);
 
@@ -168,6 +169,7 @@ class BlogController extends Controller
                 ->leftJoin('sub_categories as sc', 'sc.id', '=', 'p.category_id')
                 ->leftJoin('categories as c', 'c.id', '=', 'sc.parent_category')
                 ->where('c.id', $id)
+                ->where('status_post', 1)
                 ->select('p.*', 'c.category_name')
                 ->orderBy('p.created_at', 'desc')
                 ->get();

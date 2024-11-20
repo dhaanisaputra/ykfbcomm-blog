@@ -95,6 +95,18 @@
                             <label for="" class="form-label">Post Tags</label>
                             <input type="text" class="form-control" name="post_tags">
                         </div>
+                        <div class="mb-3">
+                            <div class="form-label">Status</div>
+                            <label class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" name="status_post" value="1">
+                                <span class="form-check-label">Active</span>
+                            </label>
+                            <span class="text-danger">
+                                @error('status_post')
+                                    {{ $message }}
+                                @enderror
+                            </span>
+                        </div>
                         <button type="submit" class="btn btn-primary">Save Post</button>
                     </div>
                 </div>

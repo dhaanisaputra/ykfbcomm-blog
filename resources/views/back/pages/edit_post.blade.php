@@ -82,6 +82,19 @@
                             <label for="" class="form-label">Post Tags</label>
                             <input type="text" class="form-control" name="post_tags" value="{{ $post->post_tags }}">
                         </div>
+                        <div class="mb-3">
+                            <div class="form-label">Status</div>
+                            <label class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" name="status_post" value="1"
+                                    {{ $post->status_post == '1' ? 'checked' : '' }}>
+                                <span class="form-check-label">Active</span>
+                            </label>
+                            <span class="text-danger">
+                                @error('status_post')
+                                    {{ $message }}
+                                @enderror
+                            </span>
+                        </div>
                         <button type="submit" class="btn btn-primary">Update Post</button>
                     </div>
                 </div>

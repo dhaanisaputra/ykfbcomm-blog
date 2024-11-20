@@ -60,7 +60,9 @@
                 @foreach ($getCateg as $category)
                     @php
                         $getSubCateg = App\Models\SubCategory::where('parent_category', $category->id)
-                            ->whereHas('posts')
+                            ->whereHas('posts', function ($query) {
+                                $query->where('status_post', 1);
+                            })
                             ->orderBy('subcategory_name', 'asc')
                             ->get();
                     @endphp

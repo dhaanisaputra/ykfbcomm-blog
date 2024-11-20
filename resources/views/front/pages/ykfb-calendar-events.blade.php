@@ -5,8 +5,8 @@
     <div class="container aos-init aos-animate" data-aos="fade-up">
         <div class="row">
             <div class="col-lg-12 text-center mb-2">
-                <h1 class="page-title">Fingerboard Calendar Events</h1>
-                <h3 class="mb-4 display-4">Mark your calendar</h3>
+                <h1 class="page-title">Kalender Acara Fingerboard</h1>
+                {{-- <h3 class="mb-4 display-4">Mark your calendar</h3> --}}
             </div>
         </div>
 

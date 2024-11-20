@@ -210,6 +210,7 @@
                                 ->leftJoin('sub_categories as sc', 'sc.id', '=', 'p.category_id')
                                 ->leftJoin('categories as c', 'c.id', '=', 'sc.parent_category')
                                 ->where('c.id', $category->id)
+                                ->where('status_post', 1)
                                 ->select('p.*')
                                 ->orderBy('p.created_at', 'desc')
                                 ->first();

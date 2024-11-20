@@ -201,6 +201,7 @@ class AuthorController extends Controller
                 'post_content' => 'required',
                 'post_category' => 'required|exists:sub_categories,id',
                 'featured_image' => 'required|mimes:jpeg,jpg,png|max:1024',
+                'status_community' => 'nullable|boolean',
             ]);
 
             $path = 'back/dist/img/posts-upload/';
@@ -246,6 +247,7 @@ class AuthorController extends Controller
             $post->post_title = $request->post_title;
             $post->featured_image = $new_filename;
             $post->post_tags = $request->post_tags;
+            $post->status_post = $request->has('status_post') ? 1 : 0;
             $saved = $post->save();
 
             if ($saved) {
@@ -265,6 +267,7 @@ class AuthorController extends Controller
             $post->post_slug = null;
             $post->post_content = $request->post_content;
             $post->post_title = $request->post_title;
+            $post->status_post = $request->has('status_post') ? 1 : 0;
             $post->post_tags = $request->post_tags;
             $saved = $post->save();
             if ($saved) {

@@ -88,7 +88,7 @@
                             <div class="form-label">Status</div>
                             <label class="form-check form-switch">
                                 <input class="form-check-input" type="checkbox" name="status_community" value="1">
-                                <span class="form-check-label">Is Active?</span>
+                                <span class="form-check-label">Active</span>
                             </label>
                             <span class="text-danger">
                                 @error('status_community')

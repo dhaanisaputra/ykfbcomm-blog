@@ -87,6 +87,7 @@ if (!function_exists('single_latest_post')) {
     {
         return Post::with('author')
             ->with('subcategory')
+            ->where('status_post', 1)
             ->limit(1)
             ->orderBy('created_at', 'desc')
             ->first();
@@ -116,6 +117,7 @@ if (!function_exists('recomended_posts')) {
     {
         return Post::with('author')
             ->with('subcategory')
+            ->where('status_post', 1)
             ->limit(4)
             ->inRandomOrder()
             ->get();
@@ -128,8 +130,12 @@ if (!function_exists('recomended_posts')) {
 if (!function_exists('categories')) {
     function categories()
     {
-        return SubCategory::whereHas('posts')
-            ->with('posts')
+        return SubCategory::whereHas('posts', function ($query) {
+            $query->where('status_post', 1);
+        })
+            ->with(['posts' => function ($query) {
+                $query->where('status_post', 1);
+            }])
             ->orderBy('subcategory_name', 'asc')
             ->get();
     }
@@ -173,6 +179,7 @@ if (!function_exists('latest_home_of_posts')) {
     {
         return Post::with('author')
             ->with('subcategory')
+            ->where('status_post', 1)
             ->skip(1)
             ->limit($limit)
             ->orderBy('created_at', 'desc')
@@ -188,6 +195,7 @@ if (!function_exists('recomended_of_posts')) {
     {
         return Post::with('author')
             ->with('subcategory')
+            ->where('status_post', 1)
             ->limit($limit)
             ->inRandomOrder()
             ->get();
@@ -220,6 +228,7 @@ if (!function_exists('latest_home_6_posts_with_except_id')) {
             ->with('subcategory')
             ->where('category_id', $category)
             ->where('id', '!=', $id)
+            ->where('status_post', 1)
             ->limit(6)
             ->orderBy('created_at', 'desc')
             ->get();
@@ -248,6 +257,7 @@ if (!function_exists('top_5_posts')) {
     {
         return Post::with('author')
             ->with('subcategory')
+            ->where('status_post', 1)
             ->limit(5)
             ->orderBy('reads', 'desc')
             ->get();
@@ -292,6 +302,7 @@ if (!function_exists('latest_home_posts_per_category_skip_1')) {
             ->leftJoin('sub_categories as sc', 'sc.id', '=', 'p.category_id')
             ->leftJoin('categories as c', 'c.id', '=', 'sc.parent_category')
             ->where('c.id', $category)
+            ->where('status_post', 1)
             ->select('p.*')
             ->orderBy('p.created_at', 'desc')
             ->limit($limit)
@@ -338,6 +349,7 @@ if (!function_exists('random_home_posts_per_category')) {
             ->leftJoin('sub_categories as sc', 'sc.id', '=', 'p.category_id')
             ->leftJoin('categories as c', 'c.id', '=', 'sc.parent_category')
             ->where('c.id', $category)
+            ->where('status_post', 1)
             ->select('p.*')
             // ->orderBy('p.created_at', 'desc')
             ->limit($limit)
