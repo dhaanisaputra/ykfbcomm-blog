@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Community;
+use App\Models\Foty;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Settings;
@@ -19,7 +21,12 @@ class AuthorController extends Controller
 {
     public function index(Request $request)
     {
-        return view('back.pages.home');
+        $postStats = Post::selectRaw("count(*) as total, sum(status_post = 1) as active")->first();
+        $communityStats = Community::selectRaw("count(*) as total, sum(status_community = 1) as active")->first();
+        $authorStats = User::selectRaw("count(*) as total, sum(blocked = 0) as active")->first();
+        $fotyStats = Foty::selectRaw("count(*) as total, sum(status_foty = 1) as active")->first();
+
+        return view('back.pages.home', compact('postStats', 'communityStats', 'authorStats', 'fotyStats'));
     }
 
     public function logout()
