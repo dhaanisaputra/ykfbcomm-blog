@@ -21,6 +21,7 @@ class Post extends Model
         // 'count_view',
         'status',
         'reads',
+        'url_video',
     ];
 
     public function scopeSearch($query, $term)

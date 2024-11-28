@@ -97,8 +97,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Url Youtube Reference</label>
-                            <input type="text" class="form-control" name="post_url_video"
-                                placeholder="Enter Youtube Url">
+                            <input type="text" class="form-control" name="url_video" placeholder="Enter Youtube Url">
                         </div>
                         <div class="mb-3">
                             <div class="form-label">Status</div>
