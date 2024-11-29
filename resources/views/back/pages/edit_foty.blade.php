@@ -49,6 +49,16 @@
                         </div>
 
                         <div class="mb-3">
+                            <label class="form-label">Award Type</label>
+                            <select class="form-select" name="award_type" id="award_type" required>
+                                <option value="">-- No Selected --</option>
+                                <option value="foty" {{ $post->award_type == 'foty' ? 'selected' : '' }}>FoTY</option>
+                                <option value="roty" {{ $post->award_type == 'roty' ? 'selected' : '' }}>RoTY</option>
+                                <option value="toty" {{ $post->award_type == 'toty' ? 'selected' : '' }}>ToTY</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
                             <label class="form-label">Url Social Media</label>
                             <input type="text" class="form-control" name="url_social_media" placeholder="Enter url"
                                 value="{{ $post->url_social_media }}">

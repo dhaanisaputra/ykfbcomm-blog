@@ -46,6 +46,16 @@
                         </div>
 
                         <div class="mb-3">
+                            <label class="form-label">Award Type</label>
+                            <select class="form-select" name="award_type" id="award_type" required>
+                                <option value="">-- No Selected --</option>
+                                <option value="foty">FoTY</option>
+                                <option value="roty">RoTY</option>
+                                <option value="toty">ToTY</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
                             <label class="form-label">Url Social Media</label>
                             <input type="text" class="form-control" name="url_social_media" placeholder="Enter url">
                             <span class="text-danger">

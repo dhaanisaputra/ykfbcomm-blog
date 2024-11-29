@@ -179,6 +179,7 @@ class CommunityController extends Controller
             'featured_image' => 'required|mimes:jpeg,jpg,png|max:3072',
             'url_social_media' => 'nullable|url',
             'status_foty' => 'nullable|boolean',
+            'award_type' => 'required|in:foty,roty,toty',
         ]);
 
         if ($request->hasFile('featured_image')) {
@@ -213,6 +214,7 @@ class CommunityController extends Controller
             $postFoty->year_foty = $request->year_foty;
             $postFoty->url_social_media = $request->url_social_media;
             $postFoty->status_foty = $request->has('status_foty') ? 1 : 0;
+            $postFoty->award_type = $request->award_type;
             $saved = $postFoty->save();
 
             if ($saved) {
@@ -249,6 +251,7 @@ class CommunityController extends Controller
                 'featured_image' => 'required|mimes:jpeg,jpg,png|max:3072',
                 'url_social_media' => 'nullable|url',
                 'status_foty' => 'nullable|boolean',
+                'award_type' => 'required|in:foty,roty,toty',
             ]);
             $path = 'back/dist/img/foty-upload/';
             $file = $request->file('featured_image');
@@ -298,6 +301,7 @@ class CommunityController extends Controller
             $fotyPost->year_foty = $request->year_foty;
             $fotyPost->status_foty = $request->has('status_foty') ? 1 : 0;
             $fotyPost->featured_image = $new_filename;
+            $fotyPost->award_type = $request->award_type;
             $saved = $fotyPost->save();
 
             if ($saved) {
@@ -310,6 +314,7 @@ class CommunityController extends Controller
                 'name_foty' => 'required|unique:foties,name_foty,' . $request->foty_id,
                 'post_content' => 'nullable',
                 'url_social_media' => 'nullable|url',
+                'award_type' => 'required|in:foty,roty,toty',
             ]);
 
             $post = Foty::find($request->foty_id);
@@ -319,6 +324,7 @@ class CommunityController extends Controller
             $post->url_social_media = $request->url_social_media;
             $post->year_foty = $request->year_foty;
             $post->status_foty = $request->has('status_foty') ? 1 : 0;
+            $post->award_type = $request->award_type;
             $saved = $post->save();
             if ($saved) {
                 return redirect()->route('author.posts.all-foty')->with('message', "FoTY updated successfully");

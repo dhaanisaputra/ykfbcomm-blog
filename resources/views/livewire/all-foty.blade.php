@@ -73,6 +73,7 @@
                             <th>Author</th>
                             <th>Year</th>
                             <th>Status</th>
+                            <th>Award Type</th>
                             <th class="w-1"></th>
                         </tr>
                     </thead>
@@ -96,6 +97,9 @@
                                 </td>
                                 <td>{{ $foty->year_foty }}</td>
                                 <td class="text-muted">{{ $foty->status_foty == '0' ? 'Inactive' : 'Active' }}
+                                </td>
+                                <td class="text-muted">
+                                    {{ $foty->award_type == 'foty' ? 'FOTY' : ($foty->award_type == 'roty' ? 'ROTY' : ($foty->award_type == 'toty' ? 'TOTY' : '')) }}
                                 </td>
                                 <td>
                                     <div class="btn-list flex-nowrap">
