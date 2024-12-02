@@ -17,6 +17,7 @@ class Foty extends Model
         'year_foty',
         'featured_image',
         'status_foty',
+        'award_type',
     ];
 
     /**

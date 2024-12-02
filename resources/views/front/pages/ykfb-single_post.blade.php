@@ -58,7 +58,18 @@
                         @endif
                     </div>
                     <!-- End Single Post Content -->
-
+                    <div class="video-post" style="display: flex; justify-content: center; align-items: center; ">
+                        @if ($posts->url_video)
+                            @php
+                                $urlVideo = $posts->url_video;
+                                $convertUrl = str_replace('watch?v=', 'embed/', $urlVideo);
+                            @endphp
+                            <iframe width="560" height="315" src="{{ $convertUrl }}" title="YouTube video player"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        @endif
+                    </div>
                     {{-- <!-- ======= Comments ======= -->
                     <div class="comments">
                         <h5 class="comment-title py-4">2 Comments</h5>

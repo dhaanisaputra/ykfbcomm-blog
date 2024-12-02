@@ -110,6 +110,7 @@ class AuthorController extends Controller
             'post_content' => 'required',
             'post_category' => 'required|exists:sub_categories,id',
             'featured_image' => 'required|mimes:jpeg,jpg,png|max:1024',
+            'url_video' => 'nullable|url',
         ]);
 
         if ($request->hasFile('featured_image')) {
@@ -172,6 +173,7 @@ class AuthorController extends Controller
             // $post->post_slug = Str::slug($request->post_title);
             $post->post_tags = $request->post_tags;
             $post->post_content = $request->post_content;
+            $post->url_video = $request->url_video;
             $post->featured_image = $new_filename;
             $saved = $post->save();
 
@@ -209,6 +211,7 @@ class AuthorController extends Controller
                 'post_category' => 'required|exists:sub_categories,id',
                 'featured_image' => 'required|mimes:jpeg,jpg,png|max:1024',
                 'status_community' => 'nullable|boolean',
+                'url_video' => 'nullable|url',
             ]);
 
             $path = 'back/dist/img/posts-upload/';
@@ -254,6 +257,7 @@ class AuthorController extends Controller
             $post->post_title = $request->post_title;
             $post->featured_image = $new_filename;
             $post->post_tags = $request->post_tags;
+            $post->url_video = $request->url_video;
             $post->status_post = $request->has('status_post') ? 1 : 0;
             $saved = $post->save();
 
@@ -267,6 +271,7 @@ class AuthorController extends Controller
                 'post_title' => 'required|unique:posts,post_title,' . $request->post_id,
                 'post_content' => 'required',
                 'post_category' => 'required|exists:sub_categories,id',
+                'url_video' => 'nullable|url',
             ]);
 
             $post = Post::find($request->post_id);
@@ -276,6 +281,7 @@ class AuthorController extends Controller
             $post->post_title = $request->post_title;
             $post->status_post = $request->has('status_post') ? 1 : 0;
             $post->post_tags = $request->post_tags;
+            $post->url_video = $request->url_video;
             $saved = $post->save();
             if ($saved) {
                 return redirect()->route('author.posts.all-post')->with('message', "Post updated successfully");

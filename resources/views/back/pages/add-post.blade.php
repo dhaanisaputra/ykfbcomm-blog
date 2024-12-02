@@ -96,6 +96,10 @@
                             <input type="text" class="form-control" name="post_tags">
                         </div>
                         <div class="mb-3">
+                            <label for="" class="form-label">Url Youtube Reference</label>
+                            <input type="text" class="form-control" name="url_video" placeholder="Enter Youtube Url">
+                        </div>
+                        <div class="mb-3">
                             <div class="form-label">Status</div>
                             <label class="form-check form-switch">
                                 <input class="form-check-input" type="checkbox" name="status_post" value="1">

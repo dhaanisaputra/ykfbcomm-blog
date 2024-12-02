@@ -192,12 +192,20 @@ class BlogController extends Controller
     {
         $perPage = 8; // Number of items per page
         $data = Foty::where('status_foty', 1)
+            ->where('award_type', 'foty')
             ->orderBy('year_foty', 'desc')
             ->paginate($perPage);
-
+        $dataRoty = Foty::where('status_foty', 1)
+            ->where('award_type', 'roty')
+            ->orderBy('year_foty', 'desc')
+            ->paginate($perPage);
+        $dataToty = Foty::where('status_foty', 1)
+            ->where('award_type', 'toty')
+            ->orderBy('year_foty', 'desc')
+            ->paginate($perPage);
         // If you want to preserve query parameters, use appends
         $data->appends($request->all());
         // return $data;
-        return view('front.pages.ykfb-foty-idn', compact('data'));
+        return view('front.pages.ykfb-foty-idn', compact('data', 'dataRoty', 'dataToty'));
     }
 }

@@ -287,7 +287,8 @@ if (!function_exists('latest_community_6_posts')) {
 if (!function_exists('all_tags')) {
     function all_tags()
     {
-        return Post::where('post_tags', '!=', null)->distinct()->pluck('post_tags')->join(',');
+        return Post::where('post_tags', '!=', null)
+            ->where('status_post', 1)->distinct()->pluck('post_tags')->join(',');
     }
 }
 
