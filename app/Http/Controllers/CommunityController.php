@@ -47,7 +47,7 @@ class CommunityController extends Controller
             $resizeImg->save(public_path($path . 'thumbnails/' . 'resized_' . $new_filename));
 
             $postCommunity = new Community();
-            $postCommunity->author_id = auth()->id();
+            $postCommunity->author_id = auth()->guard('web')->user()->id;
             $postCommunity->communities_title = $request->communities_title;
             $postCommunity->post_content = $request->post_content;
             $postCommunity->featured_image = $new_filename;
@@ -207,7 +207,7 @@ class CommunityController extends Controller
             $resizeImg->save(public_path($path . 'thumbnails/' . 'resized_' . $new_filename));
 
             $postFoty = new Foty();
-            $postFoty->author_id = auth()->id();
+            $postFoty->author_id = auth()->guard('web')->user()->id;
             $postFoty->name_foty = $request->name_foty;
             $postFoty->post_content = $request->post_content;
             $postFoty->featured_image = $new_filename;
