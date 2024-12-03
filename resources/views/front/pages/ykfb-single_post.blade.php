@@ -39,8 +39,9 @@
                             <span>{{ date_formatter($posts->created_at) }}</span>
                         </div>
                         <h1 class="mb-5">{{ $posts->post_title }}</h1>
-                        <img src="{{ asset('back/dist/img/posts-upload/thumbnails/resized_' . $posts->featured_image) }}"
-                            alt="Post Thumbnail" class="img-fluid mb-4">
+                        <img src="{{ asset('back/dist/img/posts-upload/' . $posts->featured_image) }}" alt="Post Thumbnail"
+                            class="img-fluid mb-4"
+                            style="display: block; width: 100%; max-height: 510px;  object-fit: contain;">
                         <p>{!! $posts->post_content !!}</p>
 
                         @if ($posts->post_tags)
@@ -233,7 +234,8 @@
                                     ->whereHas('posts')
                                     ->first();
                             @endphp
-                            <div class="tab-pane fade" id="pills-latest" role="tabpanel" aria-labelledby="pills-latest-tab">
+                            <div class="tab-pane fade" id="pills-latest" role="tabpanel"
+                                aria-labelledby="pills-latest-tab">
                                 @foreach (latest_home_6_posts_with_except_id($getSubCateg->id, $posts->id) as $item)
                                     <div class="post-entry-1 border-bottom">
                                         <div class="post-meta"><span

@@ -109,7 +109,7 @@ class AuthorController extends Controller
             'post_title' => 'required|unique:posts,post_title',
             'post_content' => 'required',
             'post_category' => 'required|exists:sub_categories,id',
-            'featured_image' => 'required|mimes:jpeg,jpg,png|max:1024',
+            'featured_image' => 'required|mimes:jpeg,jpg,png|max:10240',
             'url_video' => 'nullable|url',
         ]);
 
@@ -209,7 +209,7 @@ class AuthorController extends Controller
                 'post_title' => 'required|unique:posts,post_title,' . $request->post_id,
                 'post_content' => 'required',
                 'post_category' => 'required|exists:sub_categories,id',
-                'featured_image' => 'required|mimes:jpeg,jpg,png|max:1024',
+                'featured_image' => 'required|mimes:jpeg,jpg,png|max:10240',
                 'status_community' => 'nullable|boolean',
                 'url_video' => 'nullable|url',
             ]);

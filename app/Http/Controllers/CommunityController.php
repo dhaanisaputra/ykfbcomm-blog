@@ -17,7 +17,7 @@ class CommunityController extends Controller
         $request->validate([
             'communities_title' => 'required|unique:communities,communities_title',
             'post_content' => 'required',
-            'featured_image' => 'required|mimes:jpeg,jpg,png|max:3072',
+            'featured_image' => 'required|mimes:jpeg,jpg,png|max:10240',
             'url_social_media' => 'nullable|url',
             'status_community' => 'nullable|boolean',
         ]);
@@ -47,7 +47,7 @@ class CommunityController extends Controller
             $resizeImg->save(public_path($path . 'thumbnails/' . 'resized_' . $new_filename));
 
             $postCommunity = new Community();
-            $postCommunity->author_id = auth()->id();
+            $postCommunity->author_id = auth()->guard('web')->user()->id;
             $postCommunity->communities_title = $request->communities_title;
             $postCommunity->post_content = $request->post_content;
             $postCommunity->featured_image = $new_filename;
@@ -83,7 +83,7 @@ class CommunityController extends Controller
             $request->validate([
                 'communities_title' => 'required|unique:communities,communities_title,' . $request->community_id,
                 'post_content' => 'required',
-                'featured_image' => 'required|mimes:jpeg,jpg,png|max:3072',
+                'featured_image' => 'required|mimes:jpeg,jpg,png|max:10240',
                 'url_social_media' => 'nullable|url',
                 // 'status_community' => 'required',
                 'status_community' => 'nullable|boolean',
@@ -176,7 +176,7 @@ class CommunityController extends Controller
         $request->validate([
             'name_foty' => 'required|unique:foties,name_foty',
             'post_content' => 'nullable',
-            'featured_image' => 'required|mimes:jpeg,jpg,png|max:3072',
+            'featured_image' => 'required|mimes:jpeg,jpg,png|max:10240',
             'url_social_media' => 'nullable|url',
             'status_foty' => 'nullable|boolean',
             'award_type' => 'required|in:foty,roty,toty',
@@ -207,7 +207,7 @@ class CommunityController extends Controller
             $resizeImg->save(public_path($path . 'thumbnails/' . 'resized_' . $new_filename));
 
             $postFoty = new Foty();
-            $postFoty->author_id = auth()->id();
+            $postFoty->author_id = auth()->guard('web')->user()->id;
             $postFoty->name_foty = $request->name_foty;
             $postFoty->post_content = $request->post_content;
             $postFoty->featured_image = $new_filename;
@@ -248,7 +248,7 @@ class CommunityController extends Controller
             $request->validate([
                 'name_foty' => 'required|unique:foties,name_foty,' . $request->foty_id,
                 'post_content' => 'nullable',
-                'featured_image' => 'required|mimes:jpeg,jpg,png|max:3072',
+                'featured_image' => 'required|mimes:jpeg,jpg,png|max:10240',
                 'url_social_media' => 'nullable|url',
                 'status_foty' => 'nullable|boolean',
                 'award_type' => 'required|in:foty,roty,toty',

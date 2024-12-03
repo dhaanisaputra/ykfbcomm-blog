@@ -58,8 +58,8 @@
                         <div class="mb-3">
                             <div class="form-label">Featured Image</div>
                             <input type="file" name="featured_image" id="featured_image" class="form-control"
-                                onchange="previewImage(event)">
-                            <span class="text-danger">
+                                onchange="validateFileSize(event)">
+                            <span class="text-danger" id="fileSizeError">
                                 @error('featured_image')
                                     {{ $message }}
                                 @enderror
@@ -121,6 +121,21 @@
     </script>
     {{-- -- preview image -- --}}
     <script>
+        function validateFileSize(event) {
+            const file = event.target.files[0];
+            const maxSizeMB = 10; // Max size in MB
+            const maxSizeBytes = maxSizeMB * 1024 * 1024;
+
+            const errorContainer = document.getElementById('fileSizeError');
+            if (file && file.size > maxSizeBytes) {
+                errorContainer.textContent = "File too large. Maximum allowed size is 10MB.";
+                event.target.value = ""; // Reset file input
+            } else {
+                errorContainer.textContent = ""; // Clear error message
+                previewImage(event); // Call the preview function if valid
+            }
+        }
+
         function previewImage(event) {
             const imagePreview = document.getElementById('imagePreview');
             const imagePreviewImg = document.getElementById('imagePreviewImg');
