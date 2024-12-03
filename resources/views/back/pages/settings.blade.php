@@ -10,21 +10,24 @@
         </div>
     </div>
 
-        <div class="card">
-          <div class="card-header">
+    <div class="card">
+        <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs" data-bs-toggle="tabs" role="tablist">
-              <li class="nav-item" role="presentation">
-                <a href="#tabs-home-8" class="nav-link active" data-bs-toggle="tab" aria-selected="true" role="tab">General Settings</a>
-              </li>
-              <li class="nav-item" role="presentation">
-                <a href="#tabs-profile-8" class="nav-link" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab">Logo & Favicon</a>
-              </li>
-              <li class="nav-item" role="presentation">
-                <a href="#tabs-activity-8" class="nav-link" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab">Social Media</a>
-              </li>
+                <li class="nav-item" role="presentation">
+                    <a href="#tabs-home-8" class="nav-link active" data-bs-toggle="tab" aria-selected="true"
+                        role="tab">General Settings</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a href="#tabs-profile-8" class="nav-link" data-bs-toggle="tab" aria-selected="false" tabindex="-1"
+                        role="tab">Logo & Favicon</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a href="#tabs-activity-8" class="nav-link" data-bs-toggle="tab" aria-selected="false" tabindex="-1"
+                        role="tab">Social Media</a>
+                </li>
             </ul>
-          </div>
-          <div class="card-body">
+        </div>
+        <div class="card-body">
             <div class="tab-content">
                 <div class="tab-pane fade active show" id="tabs-home-8" role="tabpanel">
                     <div>
@@ -35,7 +38,8 @@
                     <div class="row">
                         <div class="col-md-6">
                             <h3>Set Blog Logo</h3>
-                            <form action="{{ route('author.change-blog-logo')}}" method="POST" id="changeBlogLogoForm" enctype="multipart/form-data">
+                            <form action="{{ route('author.change-blog-logo') }}" method="POST" id="changeBlogLogoForm"
+                                enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-2">
                                     <input type="file" class="form-control" name="blog_logo">
@@ -50,8 +54,11 @@
                                 @php
                                     $getSetting = App\Models\Settings::find(1);
                                 @endphp
-                                <img src="{{ url('/back/dist/img/logo-favicon/'.$getSetting->blog_logo) }}" style="width: 200px;height: 200px;">
-                                <button type="submit" class="btn btn-primary">Change Logo</button>
+                                <img src="{{ url('/back/dist/img/logo-favicon/' . $getSetting->blog_logo) }}"
+                                    style="width: 200px;height: 200px;">
+                                <div class="mt-4">
+                                    <button type="submit" class="btn btn-primary">Change Logo</button>
+                                </div>
                             </form>
                             {{-- <label>Logo <span style="color: red"></span></label>
                             <input type="file" class="form-control" name="blog_logo">
@@ -61,7 +68,8 @@
                         </div>
                         <div class="col-md-6">
                             <h3>Set Blog Favicon</h3>
-                            <form action="{{ route('author.change-blog-favicon')}}" method="POST" id="changeBlogFaviconForm" enctype="multipart/form-data">
+                            <form action="{{ route('author.change-blog-favicon') }}" method="POST"
+                                id="changeBlogFaviconForm" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-2">
                                     <input type="file" class="form-control" name="blog_favicon">
@@ -69,8 +77,11 @@
                                 @php
                                     $getSetting = App\Models\Settings::find(1);
                                 @endphp
-                                <img src="{{ url('/back/dist/img/logo-favicon/'.$getSetting->blog_favicon) }}" style="width: 200px;height: 200px;">
-                                <button type="submit" class="btn btn-primary">Change Favicon</button>
+                                <img src="{{ url('/back/dist/img/logo-favicon/' . $getSetting->blog_favicon) }}"
+                                    style="width: 200px;height: 200px;">
+                                <div class="mt-4">
+                                    <button type="submit" class="btn btn-primary">Change Favicon</button>
+                                </div>
                             </form>
                             {{-- <label>Favicon Icon <span style="color: red"></span></label>
                             <input type="file" class="form-control" name="blog_favicon">
@@ -86,7 +97,7 @@
                     </div>
                 </div>
             </div>
-          </div>
         </div>
+    </div>
 
 @endsection
