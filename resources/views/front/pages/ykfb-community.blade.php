@@ -9,12 +9,25 @@
                 @php
                     $listCommunity = App\Models\Community::where('status_community', 1)->count();
                 @endphp
-                <h3>All Community</h3>
-                <p style="text-align: left; margin-bottom: 30px">Di bawah ini adalah {{ $listCommunity }} nama komunitas
+                <h3>Komunitas Fingerboard</h3>
+                {{-- <p style="text-align: left; margin-bottom: 30px">Di bawah ini adalah {{ $listCommunity }} nama komunitas
                     <em>fingerboard</em>
                     yang ada di
                     Indonesia. Beberapa diantaranya sudah lama eksis lho. Kalian
                     tergabung dalam komunitas mana nih <em>guys</em> ?
+                </p> --}}
+                <p style="text-align: justify; margin-bottom: 30px">
+                    Halo fingerboarders! Pernah nggak sih, kamu ngerasa pengen gabung sama komunitas yang vibes-nya seru
+                    banget dan punya passion yang sama soal fingerboard? Eits, jangan khawatir! Ternyata, Indonesia tuh
+                    punya banyak banget komunitas fingerboard keren yang udah eksis lama.<br>
+
+                    Dengan gabung komunitas, skill fingerboard kamu
+                    bakal makin naik level! Plus, kamu juga bakal dapet
+                    temen baru yang satu passion. <br>
+
+                    Nah, di bawah ini ada {{ $listCommunity }} nama komunitas fingerboard yang wajib kamu kenal. Siapa tahu
+                    salah satunya ada
+                    di kotamu, atau malah udah kamu ikuti. Yuk, cus kita bahas satu-satu!
                 </p>
                 @forelse ($data as $item)
                     <div class="d-md-flex post-entry-2 small-logo half">

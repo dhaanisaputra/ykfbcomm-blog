@@ -97,15 +97,15 @@
 
                 <!-- Additional static menu items -->
                 <li>
-                    <a href="{{ route('community') }}">Community</a>
+                    <a href="{{ route('community') }}">Komunitas</a>
                 </li>
 
                 <li>
                     <a href="{{ route('foty-idn') }}">FoTY</a>
                 </li>
 
-                <li><a href="{{ route('calendar-events') }}">Calendar Events</a></li>
-                <li><a href="{{ route('about-me') }}">About</a></li>
+                <li><a href="{{ route('calendar-events') }}">Kalendar</a></li>
+                <li><a href="{{ route('about-me') }}">Tentang Kami</a></li>
             </ul>
         </nav>
 
