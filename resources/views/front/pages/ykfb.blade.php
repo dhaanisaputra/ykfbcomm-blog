@@ -51,7 +51,7 @@
 
                             <div class="swiper-slide">
                                 <a href="#" class="img-bg d-flex align-items-end"
-                                    style="background-image: url('/back/dist/img/img-slider/ykfb-oak-2023-slider.jpg');">
+                                    style="background-image: url('/back/dist/img/img-slider/1733240940105.jpg');">
                                     {{-- <div class="img-bg-inner">
                                         <h2>13 Amazing Poems from Shel Silverstein with Valuable Life Lessons</h2>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque
@@ -64,7 +64,33 @@
 
                             <div class="swiper-slide">
                                 <a href="#" class="img-bg d-flex align-items-end"
-                                    style="background-image: url('/back/dist/img/img-slider/ykfb-oak-slider.jpg');">
+                                    style="background-image: url('/back/dist/img/img-slider/flywood.jpg');">
+                                    {{-- <div class="img-bg-inner">
+                                        <h2>9 Half-up/half-down Hairstyles for Long and Medium Hair</h2>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque
+                                            est mollitia! Beatae minima assumenda repellat harum vero, officiis
+                                            ipsam magnam obcaecati cumque maxime inventore repudiandae quidem
+                                            necessitatibus rem atque.</p>
+                                    </div> --}}
+                                </a>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <a href="#" class="img-bg d-flex align-items-end"
+                                    style="background-image: url('/back/dist/img/img-slider/1733240940240.jpg');">
+                                    {{-- <div class="img-bg-inner">
+                                        <h2>9 Half-up/half-down Hairstyles for Long and Medium Hair</h2>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque
+                                            est mollitia! Beatae minima assumenda repellat harum vero, officiis
+                                            ipsam magnam obcaecati cumque maxime inventore repudiandae quidem
+                                            necessitatibus rem atque.</p>
+                                    </div> --}}
+                                </a>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <a href="#" class="img-bg d-flex align-items-end"
+                                    style="background-image: url('/back/dist/img/img-slider/1733240940127.jpg');">
                                     {{-- <div class="img-bg-inner">
                                         <h2>9 Half-up/half-down Hairstyles for Long and Medium Hair</h2>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque
@@ -93,11 +119,16 @@
         <div class="row g-5">
             <div class="col-lg-4">
                 @if (single_latest_post())
+                    @php
+                        $subcategory = App\Models\SubCategory::where('id', single_latest_post()->category_id)->first();
+                        // echo json_encode($subcategory);
+                    @endphp
                     <div class="post-entry-1 lg">
                         <a href="{{ route('read_post', single_latest_post()->post_slug) }}">
                             <img src="{{ asset('back/dist/img/posts-upload/' . single_latest_post()->featured_image) }}"
                                 alt="Post Thumbnail" class="img-fluid"></a>
-                        <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span>
+                        <div class="post-meta"><span class="date">{{ $subcategory->subcategory_name }}</span> <span
+                                class="mx-1">&bullet;</span>
                             <span>{{ date_formatter(single_latest_post()->created_at) }}</span>
                         </div>
                         <h2><a
